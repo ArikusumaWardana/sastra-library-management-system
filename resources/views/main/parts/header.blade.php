@@ -3,8 +3,12 @@
     <div class="flex items-center justify-between">
         <!-- Page Title -->
         <div>
-            <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
-            <p class="text-sm text-gray-600 mt-1">Welcome back to your literary collection management</p>
+            <h1 class="text-2xl font-bold text-gray-900">
+                @yield('page-title', 'Dashboard')
+            </h1>
+            <p class="text-sm text-gray-600 mt-1">
+                @yield('page-subtitle', 'Welcome back to your literary collection management')
+            </p>
         </div>
 
         <!-- User Info & Dropdown -->
