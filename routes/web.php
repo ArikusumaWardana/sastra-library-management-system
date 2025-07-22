@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BorrowerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+    // Borrowers
+    Route::get('/borrowers', [BorrowerController::class, 'index'])->name('borrowers');
+    Route::get('/borrowers/create', [BorrowerController::class, 'create'])->name('borrowers.create');
+    Route::post('/borrowers', [BorrowerController::class, 'store'])->name('borrowers.store');
+    Route::get('/borrowers/{id}/edit', [BorrowerController::class, 'edit'])->name('borrowers.edit');
+    Route::put('/borrowers/{id}', [BorrowerController::class, 'update'])->name('borrowers.update');
+    Route::delete('/borrowers/{id}', [BorrowerController::class, 'destroy'])->name('borrowers.destroy');
 });

@@ -22,7 +22,7 @@
         </div>
         
         <!-- Dashboard -->
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 text-amber-700 bg-amber-100 rounded-lg border border-amber-200">
+        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 px-4 py-3 text-amber-700 bg-amber-100 rounded-lg border border-amber-200">
             <i class="fas fa-tachometer-alt text-lg w-5 text-center"></i>
             <span class="font-medium">Dashboard</span>
         </a>
@@ -36,14 +36,14 @@
             </a>
             <a href="{{ route('categories') }}" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
                 <i class="fas fa-tags text-lg w-5 text-center"></i>
-                <span>Categories</span>
+                <span>All Categories</span>
             </a>
         </div>
 
         <!-- Borrowers Management -->
         <div class="space-y-1">
             <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">Borrowers Management</h4>
-            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
+            <a href="{{ route('borrowers') }}" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
                 <i class="fas fa-users text-lg w-5 text-center"></i>
                 <span>All Borrowers</span>
             </a>

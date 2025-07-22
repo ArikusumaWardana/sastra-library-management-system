@@ -18,6 +18,9 @@ class Borrower extends Model
       'email',
       'address',
       'institution',
+      'gender',
+      'birth_date',
+      'occupation',
     ];
 
     // Relations
