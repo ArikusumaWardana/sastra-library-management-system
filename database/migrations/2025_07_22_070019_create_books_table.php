@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('publisher');
             $table->string('year_published');
             $table->string('book_genre');
-            $table->string('book_description');
+            $table->longText('book_description')->nullable();
             $table->integer('book_stock');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
