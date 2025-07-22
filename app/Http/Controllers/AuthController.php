@@ -23,13 +23,14 @@ class AuthController extends Controller
             'password' => 'required|min:6'
         ]);
 
+        // if the validation fails, redirect back with errors
         if ($validator->fails()) {
             return back()
                 ->withErrors($validator)
                 ->withInput($request->only('email'));
         }
 
-        // Attempt to log the user in
+        // Attempt to log the user in if the validation passes
         $credentials = $request->only('email', 'password');
         $remember = $request->has('remember');
 
