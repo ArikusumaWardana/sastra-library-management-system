@@ -34,7 +34,7 @@
                 <i class="fas fa-books text-lg w-5 text-center"></i>
                 <span>All Books</span>
             </a>
-            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
+            <a href="{{ route('categories') }}" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
                 <i class="fas fa-tags text-lg w-5 text-center"></i>
                 <span>Categories</span>
             </a>
