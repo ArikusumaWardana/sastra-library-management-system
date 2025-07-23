@@ -22,7 +22,8 @@
         </div>
         
         <!-- Dashboard -->
-        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 px-4 py-3 text-amber-700 bg-amber-100 rounded-lg border border-amber-200">
+        <a href="{{ route('dashboard') }}" 
+           class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs('dashboard') ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
             <i class="fas fa-tachometer-alt text-lg w-5 text-center"></i>
             <span class="font-medium">Dashboard</span>
         </a>
@@ -30,11 +31,13 @@
         <!-- Books Management -->
         <div class="space-y-1">
             <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">Books Management</h4>
-            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
+            <a href="{{ route('books') }}" 
+               class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs(['books*', 'books.create', 'books.edit']) ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
                 <i class="fas fa-books text-lg w-5 text-center"></i>
                 <span>All Books</span>
             </a>
-            <a href="{{ route('categories') }}" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
+            <a href="{{ route('categories') }}" 
+               class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs(['categories*', 'categories.create', 'categories.edit']) ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
                 <i class="fas fa-tags text-lg w-5 text-center"></i>
                 <span>All Categories</span>
             </a>
@@ -43,7 +46,8 @@
         <!-- Borrowers Management -->
         <div class="space-y-1">
             <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">Borrowers Management</h4>
-            <a href="{{ route('borrowers') }}" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
+            <a href="{{ route('borrowers') }}" 
+               class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs(['borrowers*', 'borrowers.create', 'borrowers.edit']) ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
                 <i class="fas fa-users text-lg w-5 text-center"></i>
                 <span>All Borrowers</span>
             </a>
@@ -52,12 +56,25 @@
         <!-- Loans Management -->
         <div class="space-y-1">
             <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">Loans Management</h4>
-            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors duration-200">
-                <i class="fas fa-clipboard-list text-lg w-5 text-center"></i>
+            <a href="{{ route('loans') }}" 
+               class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs(['loans*', 'loans.create', 'loans.edit']) ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
+                <i class="fas fa-book-reader text-lg w-5 text-center"></i>
                 <span>All Loans</span>
-            </a>
-            
+            </a>    
         </div>
+
+        <!-- Visible only to admin -->
+        @if(Auth::user()->role === 'superadmin')
+            <!-- Users Management -->
+            <div class="space-y-1">
+                <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">Users Management</h4>
+                <a href="{{ route('users') }}" 
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 {{ request()->routeIs(['users*', 'users.create', 'users.edit']) ? 'text-amber-700 bg-amber-100 border border-amber-200' : 'text-gray-600 hover:text-amber-700 hover:bg-amber-50' }}">
+                    <i class="fas fa-users text-lg w-5 text-center"></i>
+                    <span>All Users</span>
+                </a>    
+            </div>
+        @endif
     </nav>
 
     <!-- Quote at bottom of sidebar - Fixed -->

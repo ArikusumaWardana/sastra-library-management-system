@@ -23,6 +23,7 @@ class BookFactory extends Factory
             'publisher' => $this->faker->company(),
             'year_published' => $this->faker->year(),
             'book_genre' => $this->faker->randomElement(['Fiksi', 'Non-Fiksi', 'Teknologi', 'Sains']),
+            'book_image' => $this->faker->imageUrl(),
             'book_description' => $this->faker->paragraph(),
             'book_stock' => $this->faker->numberBetween(1, 10),
             'category_id' => Category::inRandomOrder()->first()->id,

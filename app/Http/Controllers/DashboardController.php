@@ -14,6 +14,14 @@ class DashboardController extends Controller
      */
     public function index()
     {   
-        return view('dashboard');
+        // get overdue loans
+        $overdue = Loan::where('return_date', '<', now())->count();
+        $totalLoans = Loan::where('status', 'borrowed')->count();
+        $totalBorrowers = Borrower::count();
+
+        // get total books
+        $totalBooks = Book::count();
+
+        return view('dashboard', compact('overdue', 'totalLoans', 'totalBorrowers', 'totalBooks'));
     }
 }

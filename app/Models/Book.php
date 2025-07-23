@@ -18,6 +18,7 @@ class Book extends Model
       'publisher',
       'year_published',
       'book_genre',
+      'book_image',
       'book_description',
       'book_stock',
       'category_id',

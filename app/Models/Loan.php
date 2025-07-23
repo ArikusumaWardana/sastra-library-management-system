@@ -14,13 +14,18 @@ class Loan extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-      'user_id',
-      'book_id',
-      'loan_date',
-      'return_date',
-      'status',
+        'borrower_id',
+        'book_id', 
+        'processed_by',
+        'loan_date',
+        'return_date',
+        'status',
     ];
-    
+
+    protected $casts = [
+        'loan_date' => 'date',
+        'return_date' => 'date',
+    ];
 
     // Relations
     public function borrower() {
@@ -34,5 +39,4 @@ class Loan extends Model
     public function processedBy() {
         return $this->belongsTo(User::class, 'processed_by');
     }
-
 }

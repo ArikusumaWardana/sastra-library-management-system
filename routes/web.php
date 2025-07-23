@@ -6,6 +6,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BorrowerController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +53,28 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/borrowers/{id}/edit', [BorrowerController::class, 'edit'])->name('borrowers.edit');
     Route::put('/borrowers/{id}', [BorrowerController::class, 'update'])->name('borrowers.update');
     Route::delete('/borrowers/{id}', [BorrowerController::class, 'destroy'])->name('borrowers.destroy');
+
+    // Users
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    // Books
+    Route::get('/books', [BookController::class, 'index'])->name('books');
+    Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
+    Route::post('/books', [BookController::class, 'store'])->name('books.store');
+    Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
+    Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update');
+    Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+
+    // Loans
+    Route::get('/loans', [LoansController::class, 'index'])->name('loans');
+    Route::get('/loans/create', [LoansController::class, 'create'])->name('loans.create');
+    Route::post('/loans', [LoansController::class, 'store'])->name('loans.store');
+    Route::get('/loans/{id}/edit', [LoansController::class, 'edit'])->name('loans.edit');
+    Route::put('/loans/{id}', [LoansController::class, 'update'])->name('loans.update');
+    Route::delete('/loans/{id}', [LoansController::class, 'destroy'])->name('loans.destroy');
 });

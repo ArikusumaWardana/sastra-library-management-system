@@ -38,14 +38,6 @@
                     <!-- Dropdown Menu -->
                     <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-amber-100 z-50">
                         <div class="py-2">
-                            <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors duration-200">
-                                <i class="fas fa-user w-4 text-center"></i>
-                                <span class="text-sm">Profile Settings</span>
-                            </a>
-                            <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors duration-200">
-                                <i class="fas fa-cog w-4 text-center"></i>
-                                <span class="text-sm">System Settings</span>
-                            </a>
                             <div class="border-t border-gray-100 my-1"></div>
                             <form action="{{ route('logout') }}" method="POST" class="inline">
                                 @csrf
